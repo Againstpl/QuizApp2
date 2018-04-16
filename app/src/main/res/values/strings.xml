@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Quiz App</string>
+    <string name="Entry_Text">Welcome to amazing Friends quiz. Check your knowledge from the most popular sitcom in the world!</string>
+    <string name="Question_1">1. Who was belonged to the group of Friends?</string>
+    <string name="Question_2">2. Where Chandler has met Rachel the first time?</string>
+    <string name="Question_3">3. What cosmetic was advertised by Joey in TV?</string>
+    <string name="Question_4">4. With who Ross has gotten divorce?</string>
+    <string name="Answer_1_A">Rachel and Ross</string>
+    <string name="Answer_1_B">Monica and Chandler</string>
+    <string name="Answer_1_C">Phoebe and Joey</string>
+    <string name="Answer_1_D">Gunter and Suzanne</string>
+    <string name="Answer_2_true">In Monika\'s and Ross\' Parents\' house.</string>
+    <string name="Answer_2_false">In the coffeehouse.</string>
+    <string name="Answer_3_true">Lipstick for men.</string>
+    <string name="Answer_3_false">Eau de toilette for men.</string>
+    <string name="Answer_4_A">Rachel</string>
+    <string name="Answer_4_B">Mona</string>
+    <string name="Answer_4_C">Emily</string>
+    <string name="Answer_4_D">Carol</string>
+</resources>
