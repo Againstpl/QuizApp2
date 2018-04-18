@@ -12,55 +12,80 @@ import android.widget.RadioButton;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    int points = 0;
-
-
     public void Score (View view){
 
-        CheckBox Answer_1_A_ChB = findViewById(R.id.answer_1_A);
-        boolean Answer_1_A = Answer_1_A_ChB.isChecked();
+        int points = 0;
 
-        CheckBox Answer_1_B_ChB = findViewById(R.id.answer_1_B);
-        boolean Answer_1_B = Answer_1_B_ChB.isChecked();
-
-        CheckBox Answer_1_C_ChB = findViewById(R.id.answer_1_C);
-        boolean Answer_1_C = Answer_1_C_ChB.isChecked();
-
-//        CheckBox Answer_1_D_ChB = findViewById(R.id.answer_1_D);
-//        boolean Answer_1_D = Answer_1_D_ChB.isChecked();
-        Log.v("Main Activity", "1. Correct Answer: " + Answer_1_A + Answer_1_B + Answer_1_C );
-
-        RadioButton Answer_2_true_RB = findViewById(R.id.answer_2_true);
-        boolean Answer_2_true = Answer_2_true_RB.isChecked();
-        Log.v("Main Activity", "2. Correct Answer: " + Answer_2_true);
-
-        RadioButton Answer_3_true_RB = findViewById(R.id.answer_3_true);
-        boolean Answer_3_true = Answer_3_true_RB.isChecked();
-        Log.v("Main Activity", "3. Correct Answer: " + Answer_3_true);
-
-        CheckBox Answer_4_A_ChB = findViewById(R.id.answer_4_A);
-        boolean Answer_4_A = Answer_4_A_ChB.isChecked();
-
-        CheckBox Answer_4_C_ChB = findViewById(R.id.answer_4_C);
-        boolean Answer_4_C = Answer_4_C_ChB.isChecked();
-
-        CheckBox Answer_4_D_ChB = findViewById(R.id.answer_4_D);
-        boolean Answer_4_D = Answer_4_D_ChB.isChecked();
-        Log.v("Main Activity", "4. Correct Answer: " + Answer_4_A + Answer_4_C + Answer_4_D);
-
-        EditText name_field = findViewById(R.id.name_ET);
-        String writeName = name_field.getText().toString();
+        EditText nameField = findViewById(R.id.nameET);
+        String writeName = nameField.getText().toString();
         Log.v("Main Activity", "Name: " + writeName);
 
-         int sum = points;
+        CheckBox answer1AchB = findViewById(R.id.answer1A);
+        boolean answer1A = answer1AchB.isChecked();
 
-        String message = Summary(writeName, sum, Answer_1_A, Answer_1_B, Answer_1_C, Answer_2_true, Answer_3_true,               Answer_4_A, Answer_4_C, Answer_4_D);
+        CheckBox answer1BchB = findViewById(R.id.answer1B);
+        boolean answer1B = answer1BchB.isChecked();
+
+        CheckBox answer1CchB = findViewById(R.id.answer1C);
+        boolean answer1C = answer1CchB.isChecked();
+
+        Log.v("Main Activity", "1. Correct Answer: A. " + answer1A + " B. " + answer1B + " C. " + answer1C );
+
+        RadioButton answer2TRB = findViewById(R.id.answer2T);
+        boolean answer2T = answer2TRB.isChecked();
+
+        Log.v("Main Activity", "2. Correct Answer: " + answer2T);
+
+        RadioButton answer3TRB = findViewById(R.id.answer3T);
+        boolean answer3T = answer3TRB.isChecked();
+
+        Log.v("Main Activity", "3. Correct Answer: " + answer3T);
+
+        CheckBox answer4AchB = findViewById(R.id.answer4A);
+        boolean answer4A = answer4AchB.isChecked();
+
+        CheckBox answer4CchB = findViewById(R.id.answer4C);
+        boolean answer4C = answer4CchB.isChecked();
+
+        CheckBox answer4DchB = findViewById(R.id.answer4D);
+        boolean answer4D = answer4DchB.isChecked();
+        Log.v("Main Activity", "4. Correct Answer: " + answer4A + answer4C + answer4D);
+
+
+        if (checkBoxSolution1()){
+            points++;
+        }else{
+            points=points;
+        }
+
+        if (checkBoxSolution4()){
+            points++;
+        }else{
+            points=points;
+        }
+
+        if (answer2T){
+            points++;
+        }else {
+            points=points;
+        }
+
+        if (answer3T){
+            points++;
+        }else {
+            points=points;
+        }
+
+        String message = Summary(writeName, points , answer1A, answer1B, answer1C, answer2T, answer3T,               answer4A, answer4C, answer4D);
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:")); // only email apps should handle this
@@ -69,144 +94,37 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
+    }
+    private boolean checkBoxSolution1(){
 
 
+        CheckBox answer1AChB = findViewById(R.id.answer1A);
+        CheckBox answer1BChB = findViewById(R.id.answer1B);
+        CheckBox answer1CChB = findViewById(R.id.answer1C);
+        CheckBox answer1DChB = findViewById(R.id.answer1D);
+
+        if (answer1AChB.isChecked() && answer1BChB.isChecked() && answer1CChB.isChecked() && !answer1DChB.isChecked()) {
+
+
+            return true;
+        }
+
+        return false;
     }
 
+    private boolean checkBoxSolution4(){
 
-//    public int Solution(boolean answer1A, boolean answer1B, boolean answer1C, boolean answer4A, boolean answer4C, boolean      answer4D ) {
-//
-//        points = 0;
-//
-//        if ( answer1A, answer1B) {
-//            points = points + 1;
-//
-//        } else {
-//            points = points;
-//        }
-//
-//        if (answer4A, answer4C, answer4D) {
-//            points = points + 1;
-//
-//        } else {
-//            points = points;
-//        }
-//
-//
-//        return points;
-//    }
+        CheckBox answer4AChB = findViewById(R.id.answer4A);
+        CheckBox answer4BChB = findViewById(R.id.answer_4_B);
+        CheckBox answer4CChB = findViewById(R.id.answer4C);
+        CheckBox answer4DChB = findViewById(R.id.answer4D);
 
-    public int RadioSolution(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-
-        // Check which radio button was clicked
-        switch (view.getId()) {
-            case R.id.answer_2_true:
-                if (checked)
-                    points++;
-                break;
-            case R.id.answer_2_false:
-                if (checked)
-                    points = points;
-                break;
+        if (answer4AChB.isChecked() && !answer4BChB.isChecked() && answer4CChB.isChecked() && answer4DChB.isChecked()){
+            return true;
         }
 
-        switch (view.getId()) {
-            case R.id.answer_3_true:
-                if (checked)
-                    points++;
-                break;
-            case R.id.answer_3_false:
-                if (checked)
-                    points = points;
-                break;
-        }
-        return points;
+        return false;
     }
-
-
-    public int CheckBoxSolution(View v) {
-
-
-
-        CheckBox Answer_1_A_ChB = findViewById(R.id.answer_1_A);
-        boolean Answer_1_A = Answer_1_A_ChB.isChecked();
-
-        CheckBox Answer_1_B_ChB = findViewById(R.id.answer_1_B);
-        boolean Answer_1_B = Answer_1_B_ChB.isChecked();
-
-        CheckBox Answer_1_C_ChB = findViewById(R.id.answer_1_C);
-        boolean Answer_1_C = Answer_1_C_ChB.isChecked();
-
-        CheckBox Answer_1_D_ChB = findViewById(R.id.answer_1_D);
-        boolean Answer_1_D = Answer_1_D_ChB.isChecked();
-        Log.v("Main Activity", "1. Correct Answer: " + Answer_1_A + Answer_1_B + Answer_1_C);
-
-        CheckBox Answer_4_A_ChB = findViewById(R.id.answer_4_A);
-        boolean Answer_4_A = Answer_4_A_ChB.isChecked();
-
-        CheckBox Answer_4_B_ChB = findViewById(R.id.answer_4_B);
-        boolean Answer_4_B = Answer_4_B_ChB.isChecked();
-
-        CheckBox Answer_4_C_ChB = findViewById(R.id.answer_4_C);
-        boolean Answer_4_C = Answer_4_C_ChB.isChecked();
-
-        CheckBox Answer_4_D_ChB = findViewById(R.id.answer_4_D);
-        boolean Answer_4_D = Answer_4_D_ChB.isChecked();
-        Log.v("Main Activity", "4. Correct Answer: " + Answer_4_A + Answer_4_C + Answer_4_D);
-
-
-        if (Answer_1_A && Answer_1_B && Answer_1_C && !Answer_1_D) {
-
-            points++;
-
-        }
-
-        if (Answer_4_A && !Answer_4_B && Answer_4_C && Answer_4_D) {
-
-            points++;
-
-        }
-         return points;
-
-    }
-
-
-    //    public int CheckBoxSolution(View view) {
-//        // Is the button now checked?
-//        boolean checked = ((CheckBox) view).isChecked();
-//
-//        points = 0;
-//
-//        // Check which radio button was clicked
-//        switch (view.getId()) {
-//            case R.id.answer_1_A:
-//            case R.id.answer_1_B:
-//            case R.id.answer_1_C:
-//                if (checked)
-//                    points = points + 1;
-//                break;
-//            case R.id.answer_1_D:
-//                if (checked)
-//                    points = points;
-//                break;
-//        }
-//
-//        switch (view.getId()) {
-//            case R.id.answer_4_A:
-//            case R.id.answer_4_C:
-//            case R.id.answer_4_D:
-//                if (checked)
-//                    points = points + 1;
-//                break;
-//            case R.id.answer_4_B:
-//                if (checked)
-//                    points = points;
-//                break;
-//        }
-//        return points;
-//    }
 
 
     private String Summary(String name, int sum, boolean answer1A, boolean answer1B, boolean answer1C, boolean answerT2, boolean answerT3, boolean answer4A, boolean answer4C, boolean answer4D) {

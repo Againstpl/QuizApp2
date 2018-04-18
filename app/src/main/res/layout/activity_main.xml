@@ -17,7 +17,7 @@
             android:src="@drawable/friendslogo" />
 
         <EditText
-            android:id="@+id/name_ET"
+            android:id="@+id/nameET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="name"
@@ -41,40 +41,40 @@
             android:textSize="17sp" />
 
         <CheckBox
-            android:id="@+id/answer_1_A"
+            android:id="@+id/answer1A"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/Answer_1_A"
             android:textSize="15sp"
-            android:onClick="CheckBoxSolution"/>
+      />
 
         <CheckBox
-            android:id="@+id/answer_1_B"
+            android:id="@+id/answer1B"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/Answer_1_B"
             android:textSize="15sp"
-            android:onClick="CheckBoxSolution"/>
+         />
 
         <CheckBox
-            android:id="@+id/answer_1_C"
+            android:id="@+id/answer1C"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/Answer_1_C"
             android:textSize="15sp"
-            android:onClick="CheckBoxSolution"/>
+         />
 
         <CheckBox
-            android:id="@+id/answer_1_D"
+            android:id="@+id/answer1D"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/Answer_1_D"
             android:textSize="15sp"
-            android:onClick="CheckBoxSolution"/>
+            />
 
         <TextView
             android:id="@+id/question_2"
@@ -88,10 +88,11 @@
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/answer2RG">
 
             <RadioButton
-                android:id="@+id/answer_2_true"
+                android:id="@+id/answer2T"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -99,7 +100,7 @@
                 android:textSize="15sp" />
 
             <RadioButton
-                android:id="@+id/answer_2_false"
+                android:id="@+id/answer2F"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -121,10 +122,11 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:onClick="RadioSolution">
+            android:id="@+id/answer3RG"
+           >
 
             <RadioButton
-                android:id="@+id/answer_3_true"
+                android:id="@+id/answer3T"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -132,7 +134,7 @@
                 android:textSize="15sp" />
 
             <RadioButton
-                android:id="@+id/answer_3_false"
+                android:id="@+id/answer3F"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -151,13 +153,13 @@
             android:textSize="17sp" />
 
         <CheckBox
-            android:id="@+id/answer_4_A"
+            android:id="@+id/answer4A"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/Answer_4_A"
             android:textSize="15sp"
-            android:onClick="CheckBoxSolution"/>
+           />
 
         <CheckBox
             android:id="@+id/answer_4_B"
@@ -166,25 +168,25 @@
             android:layout_weight="1"
             android:text="@string/Answer_4_B"
             android:textSize="15sp"
-            android:onClick="CheckBoxSolution"/>
+           />
 
         <CheckBox
-            android:id="@+id/answer_4_C"
+            android:id="@+id/answer4C"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/Answer_4_C"
             android:textSize="15sp"
-            android:onClick="CheckBoxSolution"/>
+           />
 
         <CheckBox
-            android:id="@+id/answer_4_D"
+            android:id="@+id/answer4D"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/Answer_4_D"
             android:textSize="15sp"
-            android:onClick="CheckBoxSolution"/>
+          />
 
         <Button
             android:id="@+id/button"
