@@ -1,7 +1,6 @@
 package pl.against.quizapp;
 
-import android.content.Intent;
-import android.net.Uri;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -9,6 +8,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,40 +58,54 @@ public class MainActivity extends AppCompatActivity {
         boolean answer4D = answer4DchB.isChecked();
         Log.v("Main Activity", "4. Correct Answer: " + answer4A + answer4C + answer4D);
 
+        EditText answer5ET = findViewById(R.id.answer5);
+        String answer5 = answer5ET.getText().toString();
+        Log.v("Main Activity", "5. Correct Answer: " + answer5);
+
 
         if (checkBoxSolution1()) {
             points++;
-        } else {
-            points = points;
         }
 
         if (checkBoxSolution4()) {
             points++;
-        } else {
-            points = points;
         }
 
         if (answer2T) {
             points++;
-        } else {
-            points = points;
         }
 
         if (answer3T) {
             points++;
-        } else {
-            points = points;
         }
 
-        String message = summary(writeName, points, answer1A, answer1B, answer1C, answer2T, answer3T, answer4A, answer4C, answer4D);
-
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Quiz answers of: " + writeName);
-        intent.putExtra(Intent.EXTRA_TEXT, message);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
+        if (answer5.equals("Richard")) {
+            points++;
         }
+
+//        String message = summary(writeName, points, answer1A, answer1B, answer1C, answer2T, answer3T, answer4A, answer4C, answer4D, answer5);
+
+        Context context = getApplicationContext();
+        String quizSummary = "Name: " + writeName +
+                "\nTotal: " + points +
+                "\n1. " + answer1A + " " + answer1B + " " + answer1C +
+                "\n2. " + answer2T +
+                "\n3. " + answer3T +
+                "\n4. " + answer4A + " " + answer4C + " " + answer4D +
+                "\n5. " + answer5 +
+                "\nThank you!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, quizSummary, duration);
+        toast.show();
+
+//        Intent intent = new Intent(Intent.ACTION_SENDTO);
+//        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+//        intent.putExtra(Intent.EXTRA_SUBJECT, "Quiz answers of: " + writeName);
+//        intent.putExtra(Intent.EXTRA_TEXT, message);
+//        if (intent.resolveActivity(getPackageManager()) != null) {
+//            startActivity(intent);
+//        }
     }
 
     private boolean checkBoxSolution1() {
@@ -117,17 +131,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private String summary(String name, int sum, boolean answer1A, boolean answer1B, boolean answer1C, boolean answerT2, boolean answerT3, boolean answer4A, boolean answer4C, boolean answer4D) {
-
-        String quizSummary = "Name: " + name +
-                "\nTotal: " + sum +
-                "\n1. " + answer1A + " " + answer1B + " " + answer1C +
-                "\n2. " + answerT2 +
-                "\n3. " + answerT3 +
-                "\n4. " + answer4A + " " + answer4C + " " + answer4D +
-                "\nThank you!";
-        return quizSummary;
-    }
+//    private String summary(String name, int sum, boolean answer1A, boolean answer1B, boolean answer1C, boolean answerT2, boolean answerT3, boolean answer4A, boolean answer4C, boolean answer4D, String answer5) {
+//
+//        String quizSummary = "Name: " + name +
+//                "\nTotal: " + sum +
+//                "\n1. " + answer1A + " " + answer1B + " " + answer1C +
+//                "\n2. " + answerT2 +
+//                "\n3. " + answerT3 +
+//                "\n4. " + answer4A + " " + answer4C + " " + answer4D +
+//                "\n5. " + answer5 +
+//                "\nThank you!";
+//        return quizSummary;
+//    }
 
 }
 

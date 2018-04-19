@@ -5,6 +5,7 @@
     <string name="Question_2">2. Where Chandler has met Rachel the first time?</string>
     <string name="Question_3">3. What cosmetic was advertised by Joey in TV?</string>
     <string name="Question_4">4. With who Ross has gotten divorce?</string>
+    <string name="Question_5">5. Which friend of her parents does Monica date?</string>
     <string name="Answer_1_A">Rachel and Ross</string>
     <string name="Answer_1_B">Monica and Chandler</string>
     <string name="Answer_1_C">Phoebe and Joey</string>
@@ -17,4 +18,7 @@
     <string name="Answer_4_B">Mona</string>
     <string name="Answer_4_C">Emily</string>
     <string name="Answer_4_D">Carol</string>
+    <string name="name">name</string>
+    <string name="score">Score</string>
+    <string name="answer5">answer</string>
 </resources>

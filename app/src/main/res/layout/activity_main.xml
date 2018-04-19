@@ -20,7 +20,8 @@
             android:id="@+id/nameET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="name"
+            android:hint="@string/name"
+            android:paddingLeft="15dp"
             android:inputType="text" />
 
         <TextView
@@ -28,7 +29,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="@string/Entry_Text"
+            android:textAlignment="center"
             android:textSize="20sp" />
 
         <TextView
@@ -36,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:padding="5dp"
+            android:padding="15dp"
             android:text="@string/Question_1"
             android:textSize="17sp" />
 
@@ -81,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:padding="5dp"
+            android:padding="15dp"
             android:text="@string/Question_2"
             android:textSize="17sp" />
 
@@ -114,7 +118,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:padding="5dp"
+            android:padding="15dp"
             android:text="@string/Question_3"
             android:textSize="17sp" />
 
@@ -148,7 +152,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:padding="5dp"
+            android:padding="15dp"
             android:text="@string/Question_4"
             android:textSize="17sp" />
 
@@ -188,12 +192,29 @@
             android:textSize="15sp"
           />
 
+        <TextView
+            android:id="@+id/question_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="15dp"
+            android:text="@string/Question_5"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/answer5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/answer5"
+            android:inputType="text"
+            android:padding="15dp" />
+
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="score"
-            android:text="Score" />
+            android:text="@string/score" />
 
 
     </LinearLayout>
