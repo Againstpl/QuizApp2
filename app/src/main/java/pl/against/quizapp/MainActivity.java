@@ -2,8 +2,8 @@ package pl.against.quizapp;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -102,26 +102,19 @@ public class MainActivity extends AppCompatActivity {
         CheckBox answer1CChB = findViewById(R.id.answer1C);
         CheckBox answer1DChB = findViewById(R.id.answer1D);
 
-        if (answer1AChB.isChecked() && answer1BChB.isChecked() && answer1CChB.isChecked() && !answer1DChB.isChecked()) {
+        return answer1AChB.isChecked() && answer1BChB.isChecked() && answer1CChB.isChecked() && !answer1DChB.isChecked();
 
-            return true;
-        }
-
-        return false;
     }
 
     private boolean checkBoxSolution4() {
 
         CheckBox answer4AChB = findViewById(R.id.answer4A);
-        CheckBox answer4BChB = findViewById(R.id.answer_4_B);
+        CheckBox answer4BChB = findViewById(R.id.answer4B);
         CheckBox answer4CChB = findViewById(R.id.answer4C);
         CheckBox answer4DChB = findViewById(R.id.answer4D);
 
-        if (answer4AChB.isChecked() && !answer4BChB.isChecked() && answer4CChB.isChecked() && answer4DChB.isChecked()) {
-            return true;
-        }
+        return answer4AChB.isChecked() && !answer4BChB.isChecked() && answer4CChB.isChecked() && answer4DChB.isChecked();
 
-        return false;
     }
 
     private String summary(String name, int sum, boolean answer1A, boolean answer1B, boolean answer1C, boolean answerT2, boolean answerT3, boolean answer4A, boolean answer4C, boolean answer4D) {
