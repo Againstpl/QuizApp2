@@ -13,15 +13,13 @@ import android.widget.RadioButton;
 public class MainActivity extends AppCompatActivity {
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    public void Score (View view){
+    public void score(View view) {
 
         int points = 0;
 
@@ -38,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         CheckBox answer1CchB = findViewById(R.id.answer1C);
         boolean answer1C = answer1CchB.isChecked();
 
-        Log.v("Main Activity", "1. Correct Answer: A. " + answer1A + " B. " + answer1B + " C. " + answer1C );
+        Log.v("Main Activity", "1. Correct Answer: " + answer1A + answer1B + answer1C);
 
         RadioButton answer2TRB = findViewById(R.id.answer2T);
         boolean answer2T = answer2TRB.isChecked();
@@ -61,31 +59,31 @@ public class MainActivity extends AppCompatActivity {
         Log.v("Main Activity", "4. Correct Answer: " + answer4A + answer4C + answer4D);
 
 
-        if (checkBoxSolution1()){
+        if (checkBoxSolution1()) {
             points++;
-        }else{
-            points=points;
+        } else {
+            points = points;
         }
 
-        if (checkBoxSolution4()){
+        if (checkBoxSolution4()) {
             points++;
-        }else{
-            points=points;
+        } else {
+            points = points;
         }
 
-        if (answer2T){
+        if (answer2T) {
             points++;
-        }else {
-            points=points;
+        } else {
+            points = points;
         }
 
-        if (answer3T){
+        if (answer3T) {
             points++;
-        }else {
-            points=points;
+        } else {
+            points = points;
         }
 
-        String message = Summary(writeName, points , answer1A, answer1B, answer1C, answer2T, answer3T,               answer4A, answer4C, answer4D);
+        String message = summary(writeName, points, answer1A, answer1B, answer1C, answer2T, answer3T, answer4A, answer4C, answer4D);
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:")); // only email apps should handle this
@@ -95,7 +93,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
-    private boolean checkBoxSolution1(){
+
+    private boolean checkBoxSolution1() {
 
 
         CheckBox answer1AChB = findViewById(R.id.answer1A);
@@ -105,41 +104,39 @@ public class MainActivity extends AppCompatActivity {
 
         if (answer1AChB.isChecked() && answer1BChB.isChecked() && answer1CChB.isChecked() && !answer1DChB.isChecked()) {
 
-
             return true;
         }
 
         return false;
     }
 
-    private boolean checkBoxSolution4(){
+    private boolean checkBoxSolution4() {
 
         CheckBox answer4AChB = findViewById(R.id.answer4A);
         CheckBox answer4BChB = findViewById(R.id.answer_4_B);
         CheckBox answer4CChB = findViewById(R.id.answer4C);
         CheckBox answer4DChB = findViewById(R.id.answer4D);
 
-        if (answer4AChB.isChecked() && !answer4BChB.isChecked() && answer4CChB.isChecked() && answer4DChB.isChecked()){
+        if (answer4AChB.isChecked() && !answer4BChB.isChecked() && answer4CChB.isChecked() && answer4DChB.isChecked()) {
             return true;
         }
 
         return false;
     }
 
-
-    private String Summary(String name, int sum, boolean answer1A, boolean answer1B, boolean answer1C, boolean answerT2, boolean answerT3, boolean answer4A, boolean answer4C, boolean answer4D) {
+    private String summary(String name, int sum, boolean answer1A, boolean answer1B, boolean answer1C, boolean answerT2, boolean answerT3, boolean answer4A, boolean answer4C, boolean answer4D) {
 
         String quizSummary = "Name: " + name +
                 "\nTotal: " + sum +
-                "\n1. " + answer1A + answer1B + answer1C +
+                "\n1. " + answer1A + " " + answer1B + " " + answer1C +
                 "\n2. " + answerT2 +
                 "\n3. " + answerT3 +
-                "\n4. " + answer4A + answer4C + answer4D +
+                "\n4. " + answer4A + " " + answer4C + " " + answer4D +
                 "\nThank you!";
         return quizSummary;
     }
 
-    }
+}
 
 
 

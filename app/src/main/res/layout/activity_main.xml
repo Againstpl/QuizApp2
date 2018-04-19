@@ -86,10 +86,10 @@
             android:textSize="17sp" />
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/answer2RG"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/answer2RG">
+            android:orientation="vertical">
 
             <RadioButton
                 android:id="@+id/answer2T"
@@ -119,10 +119,10 @@
             android:textSize="17sp" />
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/answer3RG"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:id="@+id/answer3RG"
            >
 
             <RadioButton
@@ -192,7 +192,7 @@
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="Score"
+            android:onClick="score"
             android:text="Score" />
 
 
